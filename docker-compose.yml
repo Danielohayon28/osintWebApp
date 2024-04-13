@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./server.py:/server.py
+    environment:
+      - FLASK_ENV=development
+
+  # client:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.client
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ./osint-web-app:/osint-web-client
+  #   environment:
+  #     - NODE_ENV=development

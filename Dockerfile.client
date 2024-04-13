@@ -1,14 +1,12 @@
 FROM node:14-alpine
 
-WORKDIR /app
+WORKDIR /osint-web-client
 
 COPY package*.json ./
 
 RUN npm install
 
 COPY . .
-
-RUN npm run build
 
 EXPOSE 3000
 

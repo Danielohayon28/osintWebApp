@@ -18,12 +18,15 @@ SCAN_RESULTS = {}
 
 # docker commands 
 def run_theHarvester(domain):
-    command = f'docker run --rm -it --mount type=bind,source="$HOME/.theHarvester/api-keys.yaml",target="/app/api-keys.yaml" --entrypoint "/root/.local/bin/theHarvester" theharvester -d {domain} -b all'
+    command = f"python theHarvester.py -d moslempress.com -l 50 -b all -f moslempress.html"
     result = subprocess.check_output(command, shell=True, text=True, stderr=subprocess.STDOUT)
     return result.strip()
 
 def run_Amass(domain):
-    command = f"docker run -v OUTPUT_DIR_PATH:/.config/amass/ caffix/amass enum -passive -d {domain} "
+    # command = f"docker run -v OUTPUT_DIR_PATH:/.config/amass/ caffix/amass enum -passive -d {domain} "
+    command = f"amass -version"
+
+
     result = subprocess.check_output(command, shell=True, text=True, stderr=subprocess.STDOUT)
     return result.strip()
 
@@ -257,6 +260,9 @@ def export_to_excel(scan_id):
         os.remove(filename)
 
 
+run_Amass("Aa")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    
+    app.run(host='0.0.0.0', port=8000)
+
