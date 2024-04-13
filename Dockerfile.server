@@ -1,34 +1,27 @@
 FROM python:3.10-slim
 
 
-# Install system dependencies
 RUN apt-get update && apt-get install -y nano && \
     apt-get install -y --no-install-recommends \
     git \
     python3-venv \
     golang-go && \
     rm -rf /var/lib/apt/lists/*
+RUN apt-get update
+# Set Go environment variables
 
-# Set working directory
-WORKDIR ./
 
-# Create and activate virtual environment
-RUN python3 -m venv harvest
-RUN /bin/bash -c "source harvest/bin/activate"
+RUN git clone https://github.com/laramies/theHarvester && \
+    cd theHarvester && \
+    pip install wheel && \
+    pip install -r requirements/base.txt 
 
-# Clone theHarvester repository and install dependencies
-# RUN git clone https://github.com/laramies/theHarvester && \
-#     cd theHarvester && \
-#     pip install wheel && \
-#         pip install -r requirements/base.txt && \
-#     echo "" > api-keys.yaml
+COPY api-keys.yaml /theHarvester/api-keys.yaml
 
 RUN go install -v github.com/owasp-amass/amass/v4/...@master
 
 RUN pip install Flask Flask-CORS pandas
 
-# Expose port
 EXPOSE 8000
 
-# Start your application
-CMD ["python", "server.py"]
+CMD ["python3", "server.py"]

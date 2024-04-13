@@ -48,8 +48,3 @@ This is an Open Source Intelligence (OSINT) web application that combines the re
 5. Click on "Display Results" to view detailed results.
 6. Click on "Export to Excel" to export the results to an Excel file.
 
-## Folder Structure
-
-- `server/`: Contains the Flask server code.
-- `client/`: Contains the React client code.
-

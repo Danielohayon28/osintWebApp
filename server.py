@@ -18,18 +18,18 @@ SCAN_RESULTS = {}
 
 # docker commands 
 def run_theHarvester(domain):
-    command = f"python theHarvester.py -d moslempress.com -l 50 -b all -f moslempress.html"
+    command = f"python /theHarvester/theHarvester.py -d {domain} -b all"
     result = subprocess.check_output(command, shell=True, text=True, stderr=subprocess.STDOUT)
     return result.strip()
 
 def run_Amass(domain):
-    # command = f"docker run -v OUTPUT_DIR_PATH:/.config/amass/ caffix/amass enum -passive -d {domain} "
-    command = f"amass -version"
-
+    command = f"~/go/bin/amass enum -passive -d {domain}"
+    
+    # command = f"docker run -v OUTPUT_DIR_PATH:/.config/amass/ caffix/amass enum -passive -d develop.carteav.com"
 
     result = subprocess.check_output(command, shell=True, text=True, stderr=subprocess.STDOUT)
+    print(result.strip())
     return result.strip()
-
 
 
 # Amass parser fucntions - start
@@ -260,9 +260,8 @@ def export_to_excel(scan_id):
         os.remove(filename)
 
 
-run_Amass("Aa")
+
 
 if __name__ == '__main__':
-    
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=8000,debug=True)
 

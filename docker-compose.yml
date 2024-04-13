@@ -9,16 +9,17 @@ services:
       - "8000:8000"
     volumes:
       - ./server.py:/server.py
+      - /etc/localtime:/etc/localtime:ro 
     environment:
       - FLASK_ENV=development
 
-  # client:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.client
-  #   ports:
-  #     - "3000:3000"
-  #   volumes:
-  #     - ./osint-web-app:/osint-web-client
-  #   environment:
-  #     - NODE_ENV=development
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./osint-web-app:/osint-web-client
+    environment:
+      - NODE_ENV=development
