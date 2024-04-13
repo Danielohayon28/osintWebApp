@@ -24,7 +24,7 @@ This is an Open Source Intelligence (OSINT) web application that combines the re
 2. Navigate to the project directory:
 
    ```bash
-   cd osint-web-app
+   cd osintWebApp
    ```
 
 3. Build and run the Docker containers:
