@@ -38,6 +38,7 @@ function App() {
       });
 
       const { id, results, start_time, end_time } = response.data;
+
       const newScan = {
         id,
         domain,
