@@ -45,6 +45,6 @@ This is an Open Source Intelligence (OSINT) web application that combines the re
 2. Select the tools you want to use for scanning (theHarvester, Amass, or both).
 3. Click the "Scan" button to initiate the scan.
 4. Wait for the scan to complete, and the results will be displayed.
-5. Click on "Display Results" to view detailed results.
+5. On scan card click on "Display Results" to view saved detailed results.
 6. Click on "Export to Excel" to export the results to an Excel file.
 
