@@ -13,6 +13,10 @@ This is an Open Source Intelligence (OSINT) web application that combines the re
 - Docker
 - Docker Compose
 
+## Tools Repos
+-https://github.com/owasp-amass/amass
+-https://github.com/laramies/theHarvester
+
 ## Getting Started
 
 1. Clone the repository:
