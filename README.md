@@ -31,14 +31,18 @@ This is an Open Source Intelligence (OSINT) web application that combines the re
    ```bash
    cd osintWebApp
    ```
-
-3. Build and run the Docker containers:
+3. Navigate to the project directory:
 
    ```bash
-   docker-compose up --build
+   cd osint-web-app/ && npm install
+   ```
+4. Build and run the Docker containers:
+
+   ```bash
+   cd .. && docker-compose up --build
    ```
 
-4. Access the application:
+5. Access the application:
 
    - Open your web browser and go to http://localhost:3000 to access the client application.
    - Use the client to scan domains and view results.
